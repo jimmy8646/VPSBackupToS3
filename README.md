@@ -33,7 +33,7 @@
 	```
 5. 開啟 `S3Backup.py` 編輯設定參數
 
-6. 加入 crontab 每天凌晨進行備份
+6. 加入 crontab 每天凌晨進行備份 (建議使用 ROOT 身份執行)
 	```
 	crontab -e
 	# add the line without '#'
