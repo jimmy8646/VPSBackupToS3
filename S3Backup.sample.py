@@ -41,5 +41,5 @@ os.system("tar JcpfP %s/www/count-%s-%s-%s.tar.bz2 %s/%s --warning=no-file-chang
 
 #update count.txt (S3Backup/script/count.txt)
 os.system("echo %s > %s/script/count.txt" % (str((int(count)+1)), backupfolderpath))
-os.system("s3cmd sync --delete-removed --reduced-redundancy --skip-existing --disable-multipart %s/www/ %s/www/" % (backupfolderpath, s3bucketpath))
-os.system("s3cmd sync --delete-removed --reduced-redundancy --skip-existing --disable-multipart %s/mysql/ %s/mysql/" % (backupfolderpath, s3bucketpath))
+os.system("aws s3 sync %s/www/ %s/www/ --delete" % (backupfolderpath, s3bucketpath))
+os.system("aws s3 sync %s/mysql/ %s/mysql/ --delete" % (backupfolderpath, s3bucketpath))
